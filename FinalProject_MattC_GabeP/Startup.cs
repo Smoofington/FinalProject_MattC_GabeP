@@ -1,6 +1,8 @@
+using FinalProject_MattC_GabeP.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -24,6 +26,9 @@ namespace FinalProject_MattC_GabeP
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            
+            services.AddDbContext<MattC_GabePContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("MattC_GabePContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
