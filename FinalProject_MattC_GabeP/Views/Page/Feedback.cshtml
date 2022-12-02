@@ -15,13 +15,12 @@
         <tr><th>Name</th><th>Response</th></tr>
     </thead>
     <tbody>
-        @foreach (FeedbackViewModel r in Model) {
-        <tr>
-            <td>@r.FeedbackName</td>
-            <td>@r.FeedbackText</td>
-            
-           
-        </tr>
+        @foreach (FeedbackViewModel r in Model)
+        {
+            <tr>
+                <td>@r.FeedbackTitle</td>
+                <td>@r.FeedbackDescription</td>
+            </tr>
         }
     </tbody>
 </table>
