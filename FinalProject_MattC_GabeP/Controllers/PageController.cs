@@ -23,6 +23,10 @@ namespace FinalProject_MattC_GabeP.Controllers
         {
             return View();
         }
+        public IActionResult Feedback()
+        {
+            return View();
+        }
 
     }
 }
