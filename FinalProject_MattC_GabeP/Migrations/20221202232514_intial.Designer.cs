@@ -3,14 +3,16 @@ using FinalProject_MattC_GabeP.Models.DataLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FinalProject_MattC_GabeP.Migrations
 {
     [DbContext(typeof(MattC_GabePContext))]
-    partial class MattC_GabePContextModelSnapshot : ModelSnapshot
+    [Migration("20221202232514_intial")]
+    partial class intial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

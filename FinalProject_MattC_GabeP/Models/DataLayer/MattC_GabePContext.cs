@@ -1,7 +1,7 @@
 ﻿using FinalProject_MattC_GabeP.Models.Configuration;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinalProject_MattC_GabeP.Models
+namespace FinalProject_MattC_GabeP.Models.DataLayer
 {
     public class MattC_GabePContext : DbContext
     {
