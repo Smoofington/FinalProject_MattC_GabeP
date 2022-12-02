@@ -1,4 +1,5 @@
 ﻿using FinalProject_MattC_GabeP.Models;
+using FinalProject_MattC_GabeP.Models.DataLayer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
