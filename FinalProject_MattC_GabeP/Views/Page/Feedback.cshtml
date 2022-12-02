@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<FeedbackViewModel>
+
+@{
     ViewData["Title"] = "Feedback";
 }
 
@@ -8,8 +10,18 @@
   <p>Here is some of the feedback we have recieved from entries!</p>
 </div>
 
-
-
-
-  
-</div>
+<table class="table">
+    <thead>
+        <tr><th>Name</th><th>Response</th></tr>
+    </thead>
+    <tbody>
+        @foreach (FeedbackViewModel r in Model) {
+        <tr>
+            <td>@r.FeedbackName</td>
+            <td>@r.FeedbackText</td>
+            
+           
+        </tr>
+        }
+    </tbody>
+</table>
