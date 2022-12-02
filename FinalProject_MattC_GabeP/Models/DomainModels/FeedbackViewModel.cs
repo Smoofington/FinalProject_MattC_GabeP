@@ -8,9 +8,9 @@ namespace FinalProject_MattC_GabeP.Models
         public int FeedbackId { get; set; }        // pk
 
         [Required(ErrorMessage = "Please enter a title for your feedback.")]
-        public string FeedbackTitle { get; set; }
+        public string FeedbackName { get; set; }
 
         [Required(ErrorMessage = "Feedback description must not be empty.")]
-        public string FeedbackDescription { get; set; }
+        public string FeedbackText { get; set; }
     }
 }
