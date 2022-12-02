@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FinalProject_MattC_GabeP.Models.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject_MattC_GabeP.Models
 {
@@ -8,15 +9,12 @@ namespace FinalProject_MattC_GabeP.Models
             : base(options)
         { }
 
-        //public DbSet<Day> Days { get; set; }
-        //public DbSet<Teacher> Teachers { get; set; }
-        //public DbSet<Class> Classes { get; set; }
+        public DbSet<FeedbackViewModel> Feedback { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.ApplyConfiguration(new DayConfig());
-            //modelBuilder.ApplyConfiguration(new TeacherConfig());
-            //modelBuilder.ApplyConfiguration(new ClassConfig());
+            modelBuilder.ApplyConfiguration(new FeedbackConfig());
+
         }
     }
 }
