@@ -4,7 +4,6 @@
     ViewData["Title"] = "Feedback";
 }
 
-
 <div class="text-center">
   <h1>Feedback</h1>
   <p>Here is some of the feedback we have recieved from entries!</p>
@@ -15,11 +14,11 @@
         <tr><th>Name</th><th>Response</th></tr>
     </thead>
     <tbody>
-        @foreach (FeedbackViewModel r in Model)
+        @foreach (FeedbackViewModel feedback in Model)
         {
             <tr>
-                <td>@r.FeedbackName</td>
-                <td>@r.FeedbackText</td>
+                <td>@feedback.FeedbackName</td>
+                <td>@feedback.FeedbackText</td>
             </tr>
         }
     </tbody>

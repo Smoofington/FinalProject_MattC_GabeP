@@ -12,8 +12,6 @@ namespace FinalProject_MattC_GabeP.Models.Configuration
                 new FeedbackViewModel { FeedbackId = 1, FeedbackName = "Matt", FeedbackText = "Smells great,tastes great, all things people say about websites." },
                 new FeedbackViewModel { FeedbackId = 2, FeedbackName = "Gabe", FeedbackText = "Well, we created this so........ it looks good to me." }
                 );
-
-            
         }
     }
 }
