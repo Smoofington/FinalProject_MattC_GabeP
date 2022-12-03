@@ -25,6 +25,12 @@
             <label for="inputFeedback">Feedback for us:</label>
             <input type="text" class="form-control" id="inputFeedback" placeholder="Enter feedback here" asp-for="FeedbackText" />
         </div>
-        <button type="submit" class="btn btn-primary submission">Submit Feedback</button>
+        <button id="submit" type="submit" class="btn btn-primary submission">Submit Feedback</button>
     </form>
 </div>
+
+<script>
+    $("#submit").click(function(e) {
+        alert('You have successfully submitted feedback. Thank you!');
+    });
+</script>
