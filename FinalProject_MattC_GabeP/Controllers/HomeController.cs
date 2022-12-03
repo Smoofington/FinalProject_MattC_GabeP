@@ -49,7 +49,7 @@ namespace FinalProject_MattC_GabeP.Controllers
         {
             context.Feedback.Add(feedback);
             context.SaveChanges();
-            return View("Index");
+            return RedirectToAction("Index");
         }
     }
 }
