@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinalProject_MattC_GabeP.Migrations
 {
     [DbContext(typeof(MattC_GabePContext))]
-    [Migration("20221202232514_intial")]
-    partial class intial
+    [Migration("20221203032545_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,11 +27,11 @@ namespace FinalProject_MattC_GabeP.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("FeedbackDescription")
+                    b.Property<string>("FeedbackName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FeedbackTitle")
+                    b.Property<string>("FeedbackText")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -43,14 +43,14 @@ namespace FinalProject_MattC_GabeP.Migrations
                         new
                         {
                             FeedbackId = 1,
-                            FeedbackDescription = "Smells great,tastes great, all things people say about websites.",
-                            FeedbackTitle = "Matt"
+                            FeedbackName = "Matt",
+                            FeedbackText = "Smells great,tastes great, all things people say about websites."
                         },
                         new
                         {
                             FeedbackId = 2,
-                            FeedbackDescription = "Well, we created this so........ it looks good to me.",
-                            FeedbackTitle = "Gabe"
+                            FeedbackName = "Gabe",
+                            FeedbackText = "Well, we created this so........ it looks good to me."
                         });
                 });
 #pragma warning restore 612, 618

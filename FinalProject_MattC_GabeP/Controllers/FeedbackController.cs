@@ -1,72 +1,55 @@
 ﻿using FinalProject_MattC_GabeP.Models;
 using FinalProject_MattC_GabeP.Models.DataLayer;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using System.Security.Claims;
 
 namespace FinalProject_MattC_GabeP.Controllers
 {
     public class FeedbackController : Controller
     {
-        private FeedbackUnit data { get; set; }
-        public FeedbackController(MattC_GabePContext ctx) => data = new FeedbackUnit(ctx);
+        private Repository<FeedbackViewModel> feedback { get; set; }
+        public FeedbackController(MattC_GabePContext ctx) => feedback = new Repository<FeedbackViewModel>(ctx);
 
-
-        [HttpGet]
-        public ViewResult Add()
+        public ViewResult Index()
         {
-            this.LoadViewBag("Add");
-            return View();
+            var options = new QueryOptions<FeedbackViewModel>
+            {
+                OrderBy = f => f.FeedbackName
+            };
+            return View(feedback.List(options));
         }
 
         [HttpGet]
-        public ViewResult Edit(int id)
-        {
-            this.LoadViewBag("Edit");
-            var f = this.GetFeedback(id);
-            return View("Add", f);
-        }
+        public ViewResult Add() => View();
 
-        public IActionResult Add(FeedbackViewModel f)
+        [HttpPost]
+        public IActionResult Add(FeedbackViewModel feedbackVM)
         {
             if (ModelState.IsValid)
             {
-                if (f.FeedbackId == 0)
-                    data.Feedback.Insert(f);
-                else
-                    data.Feedback.Update(f);
-                data.Feedback.Save();
-                return RedirectToAction("Index", "Home");
+                feedback.Insert(feedbackVM);
+                feedback.Save();
+                return RedirectToAction("Index");
             }
             else
             {
-                string operation = (f.FeedbackId == 0) ? "Add" : "Edit";
-                this.LoadViewBag(operation);
-                return View();
+                return View(feedback);
             }
         }
 
+        [HttpGet]
         public ViewResult Delete(int id)
         {
-            var f = this.GetFeedback(id);
-            return View();
+            return View(feedback.Get(id));
         }
 
-        private FeedbackViewModel GetFeedback(int id)
+        [HttpPost]
+        public RedirectToActionResult Delete(FeedbackViewModel feedbackVM)
         {
-            var feedbackOptions = new QueryOptions<FeedbackViewModel>
-            {
-                Includes = "FeedbackName, FeedbackText",
-                Where = f => f.FeedbackId == id
-            };
-            return data.Feedback.Get(feedbackOptions);
-        }
-
-        private void LoadViewBag(string operation)
-        {
-            ViewBag.Feedback = data.Feedback.List(new QueryOptions<FeedbackViewModel>
-            {
-                OrderBy = f => f.FeedbackId
-            });
-            ViewBag.Operation = operation;
+            feedback.Delete(feedbackVM);
+            feedback.Save();
+            return RedirectToAction("Index");
         }
     }
 }
