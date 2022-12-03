@@ -13,17 +13,18 @@
 
     <p>After you are done viewing our pages, feel free to leave some feeback in the textbox below. All feeback is viewable on the feedback page!</p>
 
-    <div class="form-row">
+    <form asp-action="Saving" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
             <label for="inputName">Name:</label>
             <input type="text" class="form-control" id="inputName" placeholder="Enter your Name" asp-for="FeedbackName" />
         </div>
-
+        
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
             <label for="inputFeedback">Feedback for us:</label>
             <input type="text" class="form-control" id="inputFeedback" placeholder="Enter feedback here" asp-for="FeedbackText" />
         </div>
-    </div>
-
-    <button type="submit" onclick="Save()" class="btn btn-primary submission">Submit Feedback</button>
+        <button type="submit" class="btn btn-primary submission">Submit Feedback</button>
+    </form>
 </div>
